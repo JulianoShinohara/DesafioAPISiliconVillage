@@ -1,0 +1,22 @@
+<button class="btn btn-cadastrar" routerLink="/pessoa/cadastro">Cadastrar</button>
+<div class="card">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Data de Nascimento</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pessoa of pessoas; let i = index">
+          <td>{{ pessoa.idPessoa }}</td>
+          <td>{{ pessoa.nome }}</td>
+          <td>{{ pessoa.cpf }}</td>
+          <td>{{ pessoa.dataNascimento | date:"dd/MM/yyyy" }}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>

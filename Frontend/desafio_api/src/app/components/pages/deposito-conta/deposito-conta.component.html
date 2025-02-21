@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Realizar Deposito</h5>
+  
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" id="cpf" [(ngModel)]="cpf" placeholder="Digite o CPF">
+      </div>
+  
+      <div class="form-group">
+        <label for="valorDeposito">Valor do Deposito</label>
+        <input type="number" class="form-control" id="valorDeposito" [(ngModel)]="valorDeposito" placeholder="Digite o valor">
+      </div>
+  
+      <button class="btn btn-primary" (click)="realizarDeposito()">Depositar</button>
+  
+      <div *ngIf="erro" class="alert alert-danger mt-3">{{ erro }}</div>
+  
+      <div *ngIf="transacao" class="mt-3">
+        <h5>Detalhes da Transação</h5>
+        <p><strong>Valor Sacado:</strong> {{ transacao.valor | currency:'BRL' }}</p>
+        <p><strong>Data:</strong> {{ transacao.data | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+        <p><strong>Conta ID:</strong> {{ transacao.conta.idConta }}</p>
+      </div>
+    </div>
+  </div>
+  

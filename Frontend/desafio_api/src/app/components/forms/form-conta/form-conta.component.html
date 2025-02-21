@@ -1,0 +1,53 @@
+<form
+  [formGroup]="pessoaForm"
+  (ngSubmit)="buscarPessoaPorCpf()"
+  #formDir="ngForm"
+>
+  <div class="form-group">
+    <label for="cpf"> CPF: </label>
+    <input
+      type="text"
+      formControlName="cpf"
+      placeholder="Digite o CPF do responsável"
+      required
+    />
+  </div>
+  <button type="submit" [disabled]="!pessoaForm.valid">Buscar Pessoa</button>
+</form>
+
+<div *ngIf="pessoa">
+  <form (ngSubmit)="submit()" [formGroup]="contaForm" #formDir="ngForm">
+    <input type="hidden" formControlName="idConta" />
+    <div class="form-group">
+      <input type="hidden" formControlName="pessoa" />
+    </div>
+    <div class="form-group">
+      <label for="saldo"> Saldo: </label>
+      <input
+        type="number"
+        formControlName="saldo"
+        placeholder="Digite seu saldo inicial..."
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="limiteSaqueDiaro"> Limite de saque diario: </label>
+      <input
+        type="number"
+        formControlName="limiteSaqueDiaro"
+        placeholder="Digite seu limite de saque diario..."
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="tipoConta"> tipo da conta: </label>
+      <input
+        type="number"
+        formControlName="tipoConta"
+        placeholder="Digite seu tipo de conta..."
+        required
+      />
+    </div>
+    <input type="submit" value="{{ btnText }}" />
+  </form>
+</div>

@@ -1,0 +1,62 @@
+/* Navbar fixa no topo */
+.navbar {
+    background-color: #004085 !important; /* Mantém a cor de fundo */
+    padding: 10px 20px; /* Espaçamento interno */
+    position: fixed; /* Fixa a navbar no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050; /* Garante que a navbar esteja acima de outros elementos */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar a navbar */
+}
+
+/* Estilo para o container da navbar */
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 35px;
+}
+
+/* Estilo para o logo e o texto da marca */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #fff !important; /* Cor do texto branco */
+    text-decoration: none;
+
+    img {
+        margin-right: 10px; /* Espaçamento entre o logo e o texto */
+    }
+}
+
+/* Estilo para os itens do menu */
+.navbar-nav {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os itens do menu */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .nav-item {
+        .nav-link {
+            color: #fff !important; /* Cor do texto branco */
+            font-size: 1rem;
+            font-weight: 400;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #cce5ff !important; /* Cor ao passar o mouse */
+            }
+        }
+    }
+}
+
+/* Ajuste para o header */
+.header {
+    height: 100%; /* Garante que o header ocupe a altura total */
+    padding-top: 60px; /* Adiciona espaço para a navbar fixa */
+}

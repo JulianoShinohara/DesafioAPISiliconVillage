@@ -1,0 +1,20 @@
+.page {
+    display: flex; /* Layout flexível */
+    min-height: 100vh; /* Ocupa a altura total da tela */
+    background-color: #f8f9fa; /* Cor de fundo opcional */
+
+    /* Sidebar */
+    app-sidebar {
+        width: 250px; /* Largura fixa da sidebar */
+        background-color: #004085; /* Cor de fundo da sidebar */
+        color: #fff; /* Cor do texto branco */
+        box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        z-index: 1000; /* Garante que a sidebar fique acima do conteúdo */
+    }
+
+    /* Conteúdo principal */
+    router-outlet {
+        padding: 20px; /* Espaçamento interno */
+        background-color: #fff; /* Cor de fundo do conteúdo */
+    }
+}

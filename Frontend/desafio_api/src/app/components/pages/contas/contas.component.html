@@ -1,0 +1,36 @@
+<button class="btn btn-cadastrar" routerLink="/conta/cadastro">Cadastrar</button>
+<div class="card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ID Pessoa</th>
+        <th scope="col">Saldo</th>
+        <th scope="col">Limite Saque Diario</th>
+        <th scope="col">Conta Ativa</th>
+        <th scope="col">Tipo de Conta</th>
+        <th scope="col">Data de Criação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conta of contas; let i = index">
+        <td>{{ conta.idConta }}</td>
+        <td>{{ conta.pessoa.idPessoa }}</td>
+        <td>{{ conta.saldo | currency : "BRL" }}</td>
+        <td>{{ conta.limiteSaqueDiaro | currency : "BRL" }}</td>
+        <td>{{ conta.flagAtivo }}</td>
+        <td>{{ conta.tipoConta }}</td>
+        <td>{{ conta.data | date : "dd/MM/yyyy" }}</td>
+        <td>
+          <button
+            class="btn-status"
+            [ngClass]="conta.flagAtivo ? 'bloquear' : 'desbloquear'"
+            (click)="alterarStatusConta(conta)"
+          >
+            {{ conta.flagAtivo ? "Bloquear" : "Desbloquear" }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

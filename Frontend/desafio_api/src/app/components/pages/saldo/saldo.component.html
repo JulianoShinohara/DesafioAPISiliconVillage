@@ -1,0 +1,21 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Consultar Saldo</h5>
+  
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" class="form-control" [(ngModel)]="cpf" placeholder="Digite o CPF" />
+      </div>
+  
+      <button class="btn btn-primary" (click)="buscarSaldo()">Buscar Saldo</button>
+  
+      <p *ngIf="saldo !== null; else errorTemplate">
+        Saldo: {{ saldo | currency:'BRL' }}
+      </p>
+  
+      <ng-template #errorTemplate>
+        <p class="text-danger">{{ errorMessage }}</p>
+      </ng-template>
+    </div>
+  </div>
+  

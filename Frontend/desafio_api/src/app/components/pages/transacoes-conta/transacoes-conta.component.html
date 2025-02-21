@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="card-header">
+      <h3>Buscar Transações</h3>
+    </div>
+    
+    <div class="card-body">
+      <!-- Campo para CPF -->
+      <div class="form-group">
+        <label for="cpf">Digite o CPF:</label>
+        <input type="text" id="cpf" [(ngModel)]="cpf" class="form-control" placeholder="Digite o CPF" />
+      </div>
+      
+      <!-- Botão de buscar transações -->
+      <button class="btn btn-primary" (click)="buscarTransacoes()">Buscar Transações</button>
+      
+      <!-- Mensagem de erro caso a busca falhe -->
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+  
+      <!-- Tabela de transações -->
+      <table class="table mt-4" *ngIf="transacoes.length > 0">
+        <thead>
+          <tr>
+            <th>ID Transação</th>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>CPF</th> <!-- Exibindo o CPF da pessoa associada à conta -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transacao of transacoes">
+            <td>{{ transacao.idTransacao }}</td>
+            <td>{{ transacao.valor | currency: 'BRL' }}</td>
+            <td>{{ transacao.data | date: 'dd/MM/yyyy HH:mm' }}</td>
+            <td>{{ transacao.conta.pessoa.cpf }}</td> <!-- Acessando o CPF da pessoa associada à conta -->
+          </tr>
+        </tbody>
+      </table>
+  
+      <!-- Caso não existam transações -->
+      <div *ngIf="transacoes.length === 0 && !errorMessage">
+        <p class="text-muted">Nenhuma transação encontrada para o CPF informado !!!</p>
+      </div>
+    </div>
+  </div>
+  
